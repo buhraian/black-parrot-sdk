@@ -46,3 +46,9 @@ prog_bsg: prog
 	# Requires patience
 	@$(MAKE) -j1 build.linux
 
+prog_bp_tests:
+	@$(MAKE) -j1 build.bp-tests
+
+prog_coremark:
+	@$(MAKE) -j1 build.coremark
+

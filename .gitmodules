@@ -50,7 +50,7 @@
     branch = master
 [submodule "bp-tests"]
     path = bp-tests
-    url = https://github.com/black-parrot-sdk/bp-tests
+    url = https://github.com/buhraian/bp-tests
     branch = master
 [submodule "bp-demos"]
     path = bp-demos

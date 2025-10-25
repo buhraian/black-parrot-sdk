@@ -4,6 +4,8 @@ include $(TOP)/Makefile.env
 
 include $(BP_MK_DIR)/Makefile.*
 
+RISCV_OBJCOPY = $(PLATFORM_TRIPLE)-objcopy
+
 tools_lite: ## minimal SDK toolset
 tools_lite:
 	@$(MAKE) build.dromajo
@@ -52,3 +54,7 @@ prog_bp_tests:
 prog_coremark:
 	@$(MAKE) -j1 build.coremark
 
+coremark_only:
+	@$(MAKE) -j1 -C coremark/barebones/ -fcore_portme.mak clean coremark.riscv
+	$(RISCV_OBJCOPY) -I elf64-little coremark/barebones/coremark.riscv -O binary coremark/barebones/coremark.bin
+	$(RISCV_OBJCOPY) -I binary coremark/barebones/coremark.bin -O verilog coremark/barebones/coremark.mem
